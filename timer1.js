@@ -5,8 +5,13 @@ const timer = process.argv.slice(2).sort();
 
 //executes the function (ring alarm) once for each element in the array
 timer.forEach(time => {
-  setTimeout(() => {
-    process.stdout.write('\x07')
-  }, time * 1000);
-});
-
+  
+  //if edge cases (no numbers, negative number, or NaN) are NOT met, beep 
+  if (time > 0 && time !== isNaN) {
+    setTimeout(() => {
+      process.stdout.write('\x07')
+    }, time * 1000);
+  } else {
+    return null;
+  }
+}) 
